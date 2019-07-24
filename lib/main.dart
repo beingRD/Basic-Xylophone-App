@@ -9,78 +9,35 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$noteNumber.wav');
   }
 
+  Expanded buildXyloKey({Color keyColor, int noteNumber}) {
+    return Expanded(
+      child: FlatButton(
+        color: keyColor,
+        onPressed: () {
+          playNote(noteNumber);
+        },
+        child: Text(''),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.red,
-                    onPressed: () {
-                      playNote(1);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.orange,
-                    onPressed: () {
-                      playNote(2);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.yellow,
-                    onPressed: () {
-                      playNote(3);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.green,
-                    onPressed: () {
-                      playNote(4);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.blue,
-                    onPressed: () {
-                      playNote(5);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.indigo,
-                    onPressed: () {
-                      playNote(6);
-                    },
-                    child: Text(''),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    color: Colors.purple,
-                    onPressed: () {
-                      playNote(7);
-                    },
-                    child: Text(''),
-                  ),
-                ),
+                buildXyloKey(keyColor: Colors.red, noteNumber: 1),
+                buildXyloKey(keyColor: Colors.orange, noteNumber: 2),
+                buildXyloKey(keyColor: Colors.yellow, noteNumber: 3),
+                buildXyloKey(keyColor: Colors.green, noteNumber: 4),
+                buildXyloKey(keyColor: Colors.blue, noteNumber: 5),
+                buildXyloKey(keyColor: Colors.indigo, noteNumber: 6),
+                buildXyloKey(keyColor: Colors.purple, noteNumber: 7),
               ],
             ),
           ),
